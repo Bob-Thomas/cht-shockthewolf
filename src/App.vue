@@ -30,7 +30,7 @@ export default {
   mounted(){
     this.loadAllUsers(this.users);
     console.log(orderBy)
-  },  
+  },
   methods: {
     loadAllUsers(users) {
       let vm = this;
@@ -88,6 +88,12 @@ export default {
           startKills: 0,
           startDeaths: 0,
           startScore: 0,
+        },
+        {
+          username: 'NickleBackFan420',
+          startKills: 0,
+          startDeaths: 0,
+          startScore: 0,
         }
       ]
     }
@@ -96,7 +102,7 @@ export default {
       orderedUsers: function() {
         return orderBy(this.users, 'userData.player.score', 'desc')
       }
-        
+
   }
 }
 </script>
@@ -136,8 +142,8 @@ html {
       top: 10%;
       left: 80%;
       max-width: 100px;
-    }  
+    }
   }
-  
+
 }
 </style>
