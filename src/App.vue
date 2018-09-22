@@ -156,12 +156,6 @@ html {
       /* When on medium sized screens, we center it by evenly distributing empty space around items */
       justify-content: space-around;
   }
-
-  /* Small screens */
-  @media all and (max-width: 500px) {
-      /* On small screens, we are no longer using row direction but column */
-      flex-direction: column;
-  }
 }
 
 .reset-date {
