@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1 class='reset-date'>stats reset at 22-09-2018 11:21</h1>
     <div class="stats-container">
       <div :key="index" v-for="(user, index) in orderedUsers" class="user-stats" v-if="user.userData">
         <div class="user-stats__title">
@@ -20,13 +21,10 @@
     </div>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld'
 import {orderBy} from 'lodash'
 export default {
   name: 'App',
-
   mounted(){
     this.loadAllUsers(this.users);
     console.log(orderBy)
@@ -47,6 +45,7 @@ export default {
             object.stats.kills = object.stats.kills - vm.users[index].startKills
             object.stats.deaths = object.stats.deaths - vm.users[index].startDeaths
             object.player.score = object.player.score - vm.users[index].startScore
+            object.player.rank.nr = object.player.rank.nr - vm.users[index].rank
             vm.$set(vm.users[index], 'userData', object)
           })
         })
@@ -61,45 +60,52 @@ export default {
       users: [
         {
           username: 'asalways66',
-          startKills: 0,
-          startDeaths: 0,
-          startScore: 0,
+          startKills: 6096,
+          startDeaths: 5858,
+          startScore: 3541330,
+          rank: 60,
         },
         {
           username: 'P3ter97',
-          startKills: 0,
-          startDeaths: 0,
-          startScore: 0,
+          startKills: 469,
+          startDeaths: 914,
+          startScore: 873463,
+          rank: 26,
         },
         {
           username: '3ndargon',
-          startKills: 0,
-          startDeaths: 0,
-          startScore: 0,
+          startKills: 589,
+          startDeaths: 763,
+          startScore: 300793,  
+          rank: 14,
         },
         {
           username: 'arthur14725',
-          startKills: 0,
-          startDeaths: 0,
-          startScore: 0,
+          startKills: 5709,
+          startDeaths: 4608,
+          startScore: 4974497,
+          rank: 73,
         },
         {
           username: 'displee',
-          startKills: 0,
-          startDeaths: 0,
-          startScore: 0,
+          startKills: 56,
+          startDeaths: 259,
+          startScore: 43912,
+          rank: 4,
         },
         {
-          username: 'NickleBackFan420',
-          startKills: 0,
-          startDeaths: 0,
-          startScore: 0,
+          username: 'NickleBac,20',
+          startKills: 49,
+          startDeaths: 88,
+          startScore: 77684,
+          rank: 6
         },
         {
           username: 'Bedela1',
-          startKills: 0,
-          startDeaths: 0,
-          startScore: 0,
+          startKills: 2,
+          startDeaths: 14,
+          startScore: 603,
+          rank: 0,
         }
       ]
     }
@@ -127,6 +133,10 @@ html {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.reset-date {
+  text-align: center;
+  color:yellow;
+}
 .user-stats {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c6/M81_U.S._woodland_camouflage_pattern_swatch.png');
   margin: 10px;
