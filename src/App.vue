@@ -94,6 +94,12 @@ export default {
           startKills: 0,
           startDeaths: 0,
           startScore: 0,
+        },
+        {
+          username: 'Bedela1',
+          startKills: 0,
+          startDeaths: 0,
+          startScore: 0,
         }
       ]
     }
