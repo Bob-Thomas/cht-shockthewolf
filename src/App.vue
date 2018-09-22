@@ -26,8 +26,11 @@ import {orderBy} from 'lodash'
 export default {
   name: 'App',
   mounted(){
+    let vm = this;
     this.loadAllUsers(this.users);
-    console.log(orderBy)
+    setInterval(() => {
+      vm.loadAllUsers(vm.users);
+    }, 300000)
   },
   methods: {
     loadAllUsers(users) {
@@ -94,7 +97,7 @@ export default {
           rank: 4,
         },
         {
-          username: 'NickleBac,20',
+          username: 'NickleBackFan420',
           startKills: 49,
           startDeaths: 88,
           startScore: 77684,
