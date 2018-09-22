@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <span class='poweredby'>Powered By <a href="https://bf4stats.com">https://bf4stats.com</a></span>
     <h1 class='reset-date'>stats reset at 22-09-2018 11:21</h1>
     <div class="stats-container">
-      <div :key="index" v-for="(user, index) in orderedUsers" class="user-stats" v-if="user.userData">
+      <div :key="index" v-for="(user, index) in orderedUsers" class="user-stats" v-if="user.userData" v-bind:style="{ 'background-image': 'url(' + getRandomDogtag() + ')' }">
         <div class="user-stats__title">
           <span class="user-stats__username">{{user.username}}</span>
         </div>
@@ -14,7 +15,7 @@
             <span>Score: {{user.userData.player.score}}</span>
           </div>
           <div class="user-stats__block">
-            <img :src="getUserRankImage(user)" alt="">
+            <!-- <img :src="getUserRankImage(user)" alt=""> -->
           </div>
         </div>
       </div>
@@ -56,6 +57,12 @@ export default {
 
     getUserRankImage(user) {
       return require('./assets/bf4/ranks/r'+user.userData.player.rank.nr+'.png')
+    },
+
+    getRandomDogtag() {
+      // let randomName = (Math.random() > 0.5) ? 'basic' : 'advanced'
+      let randomName = 'advanced'
+      return require(`./assets/bf4/dogtags/${randomName}${Math.floor(Math.random() * (287 - 0 + 1)) + 0}.png`)
     }
   },
   data() {
@@ -132,8 +139,22 @@ html {
 }
 
 .stats-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-start;
+
+    /* Medium screens */
+  @media all and (max-width: 800px) {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      justify-content: space-around;
+  }
+
+  /* Small screens */
+  @media all and (max-width: 500px) {
+      /* On small screens, we are no longer using row direction but column */
+      flex-direction: column;
+  }
 }
 
 .reset-date {
@@ -141,20 +162,29 @@ html {
   color:yellow;
 }
 .user-stats {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c6/M81_U.S._woodland_camouflage_pattern_swatch.png');
-  margin: 10px;
+  flex-shrink: 0;
+  width: 256px;
+  height: 128px;
+  background-repeat: no-repeat;
+  margin: 25px;
   padding: 5px;
   display: grid;
   border-radius: 8px;
   .user-stats__title {
     text-align: center;
     color: green;
+    margin-top: 9px;
   }
   .user-stats__container {
     position: relative;
+    margin-left: 50px;
+    margin-top:-20px;
+  
     span {
+      color: white;
+      font-size: 15px;
       display: block;
-      margin-top:10px;
+      margin-top:3px;
     }
     img {
       position: absolute;
@@ -163,6 +193,12 @@ html {
       max-width: 100px;
     }
   }
+}
 
+.poweredby {
+  color: yellow;
+  a {
+    color: yellow
+  }
 }
 </style>
