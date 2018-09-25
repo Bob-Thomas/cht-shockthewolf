@@ -86,7 +86,7 @@ export default {
           username: '3ndargon',
           startKills: 589,
           startDeaths: 763,
-          startScore: 300793,  
+          startScore: 300793,
           rank: 14,
         },
         {
@@ -104,7 +104,7 @@ export default {
           rank: 4,
         },
         {
-          username: 'NickleBackFan420',
+          username: 'Lauw1402',
           startKills: 49,
           startDeaths: 88,
           startScore: 77684,
@@ -115,6 +115,13 @@ export default {
           startKills: 2,
           startDeaths: 14,
           startScore: 603,
+          rank: 0,
+        },
+        {
+          username: 'HellMcWarrior',
+          startKills: 0,
+          startDeaths: 0,
+          startScore: 0,
           rank: 0,
         }
       ]
@@ -179,7 +186,7 @@ html {
     position: relative;
     margin-left: 50px;
     margin-top:-20px;
-  
+
     span {
       color: white;
       font-size: 15px;
