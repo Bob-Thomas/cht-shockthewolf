@@ -118,7 +118,7 @@ export default {
           rank: 0,
         },
         {
-          username: 'HellMcWarrior',
+          username: 'HeIIMcWarrior',
           startKills: 0,
           startDeaths: 0,
           startScore: 0,
